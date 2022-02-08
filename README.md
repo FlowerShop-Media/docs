@@ -1,4 +1,4 @@
-# FlowerShop JavaScript API
+# FlowerShop Media JavaScript Tracking API
 
 ## Add FlowerShop Media JavaScript API to Your Website
 
