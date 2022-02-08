@@ -46,17 +46,17 @@ _fsm(event, eventData);
 
 `payload` – Optional data associated with event. Technically, this can be any type of JavaScript value that can be serialized using the `JSON.stringify()` function. However, a plain object is strongly recommended due to its expressiveness. If a payload is not serializable into JSON, it will be ignored (because the `JSON.stringify()` function returns an `undefined`).
 
-## Track Page Views
+This function can be used to send any type of events you wish to track. For tracking page views and purchases, please take a look at the following sections.
+
+## Track Page Landings
 
 ```javascript
 _fsm('landing');
 ```
-
 ## Track Purchases
 
 Purchase tracking sends FlowerShop Media information about a purchase made within the website. 
 ```javascript
-// Tracks the purchase event in Oribi
 _fsm('purchase', purchaseDetails);
 ```
 
@@ -67,7 +67,7 @@ _fsm('purchase', purchaseDetails);
 | `currency`               | String   | NO           | A three letter ISO-4217 currency code of the currency the prices are in (case insensitive). If provided, it must be in one of our supported currencies (see below), from which it will be converted to the currency you chose in FSM. If omitted, the store currency you set in FSM will be used.|
 | `userId`                 | String   | NO           | The identifier of the user that places the order.|
 | `storeId`                | String   | NO           | The identifier of the store where the order is placed.|
-| `orderId`                | String   | NO           | An order identifier that will be shown in FSM in the future to help you recognize specific purchases and will be used to make sure you don’t count the same purchase multiple times. If you send multiple purchases with the same (non-null) orderId, Oribi will only count the first purchase and ignore subsequent ones. |
+| `orderId`                | String   | NO           | An order identifier that will be shown in FSM in the future to help you recognize specific purchases and will be used to make sure you don’t count the same purchase multiple times. If you send multiple purchases with the same (non-null) orderId, FSM will only count the first purchase and ignore subsequent ones. |
 | `taxPrice`               | Number   | NO           | The tax paid for the purchase (in the same currency as the total price). (Default: 0)|
 | `shippingPrice`          | Number   | NO           | The additional price paid for the shipping of the purchased items (in the same currency as the total price). (Default: 0)|
 | `discountPrice`          | Number   | NO           | The discount for the purchase, if exists (in the same currency as the total price). (Default: 0)|
@@ -82,7 +82,7 @@ _fsm('purchase', purchaseDetails);
 | `products.categories`    | Array    | NO           | An array of string categories. Will be used in the future to search and filter purchases.|
 | `products.customField`   | Any      | NO           | Any extra fields that need to be added per product. |
 
-## Supported Currencies
+### Supported Currencies
 |CODE | CURRENCY                               |
 |-----|----------------------------------------|
 | AED | United Arab Emirates Dirham            |
