@@ -34,33 +34,35 @@ Simply paste the code that the FSM team has provided you with inside the `<head>
 ...
 </html>
 ```
+
+## Tracking Conversions
 Once the code is added, you can use the `_fsm`  global JavaScript function to send conversions to FlowerShop Media.
 
 ```javascript
-_fsm(event, eventData);
+_fsm(event, payload);
 ```
 
 **Parameters:**
 
-`event` – Name of event. Required. `String`
+`event` – Name of event. Required. Must be a `String`.
 
 `payload` – Optional data associated with event. Technically, this can be any type of JavaScript value that can be serialized using the `JSON.stringify()` function. However, a plain object is strongly recommended due to its expressiveness. If a payload is not serializable into JSON, it will be ignored (because the `JSON.stringify()` function returns an `undefined`).
 
 This function can be used to send any type of events you wish to track. For tracking page views and purchases, please take a look at the following sections.
 
-## Track Page Landings
+### Tracking Page Landings
 
 ```javascript
 _fsm('landing');
 ```
-## Track Purchases
+### Tracking Purchases
 
 Purchase tracking sends FlowerShop Media information about a purchase made within the website. 
 ```javascript
 _fsm('purchase', purchaseDetails);
 ```
 
-###  Anatomy of the `purchaseDetails` JavaScript object
+####  Anatomy of the `purchaseDetails` JavaScript object
 |        **Field**       | **Type** | **Required** |                                                                                                                                                       **Description**                                                                                                                                                      |
 |----------------------|-------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `totalPrice`             | Number   | YES          | The total amount the customer paid (after shipping, tax, discounts, etc). It can contain a fraction (e.g. a value of 1.5 can describe a price of $1.5)|
@@ -82,7 +84,7 @@ _fsm('purchase', purchaseDetails);
 | `products.categories`    | Array    | NO           | An array of string categories. Will be used in the future to search and filter purchases.|
 | `products.customField`   | Any      | NO           | Any extra fields that need to be added per product. |
 
-### Supported Currencies
+#### Supported Currencies
 |CODE | CURRENCY                               |
 |-----|----------------------------------------|
 | AED | United Arab Emirates Dirham            |
