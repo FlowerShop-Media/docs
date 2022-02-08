@@ -61,28 +61,31 @@ _fsm('purchase', purchaseDetails);
 ```
 
 ###  Anatomy of the `purchaseDetails` JavaScript object
-| Field                    | Type   | Required | Description                                                                                                                                                                                                                                                                                                                |   |
-|--------------------------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-| `totalPrice`             | Number | REQUIRED | The total amount the customer paid (after shipping, tax, discounts, etc). It can contain a fraction (e.g. a value of 1.5 can describe a price of $1.5)                                                                                                                                                                     |   |
-| `currency`               | String | OPTIONAL | A three letter ISO-4217 currency code of the currency the prices are in (case insensitive). If provided, it must be in one of our supported currencies (see below), from which it will be converted to the currency you chose in FSM. If omitted, the store currency you set in FSM will be used.                          |   |
-| `orderId`                | String | OPTIONAL | An order identifier that will be shown in FSM in the future to help you recognize specific purchases and will be used to make sure you don’t count the same purchase multiple times. If you send multiple purchases with the same (non-null) orderId, Oribi will only count the first purchase and ignore subsequent ones. |   |
-| `taxPrice`               | Number | OPTIONAL | The tax paid for the purchase (in the same currency as the total price). (Default: 0)                                                                                                                                                                                                                                      |   |
-| `shippingPrice`          | Number | OPTIONAL | The additional price paid for the shipping of the purchased items (in the same currency as the total price). (Default: 0)                                                                                                                                                                                                  |   |
-| `discountPrice`          | Number | OPTIONAL | The discount for the purchase, if exists (in the same currency as the total price). (Default: 0)                                                                                                                                                                                                                           |   |
-| `products`               | Array  | OPTIONAL | The list of products purchased (see details below)                                                                                                                                                                                                                                                                         |   |
-| `products.name`          | String | OPTIONAL | The name of the product. Will be used in the future to search or filter purchases.                                                                                                                                                                                                                                         |   |
-| `products.id`            | String | OPTIONAL | The String identifier of the product.                                                                                                                                                                                                                                                                                      |   |
-| `products.price`         | Number | OPTIONAL | The price for a single unit of the product.                                                                                                                                                                                                                                                                                |   |
-| `products.discountPrice` | Number | OPTIONAL | The discount on specific product.                                                                                                                                                                                                                                                                                          |   |
-| `products.taxPrice`      | Number | OPTIONAL | The tax price on specific product.                                                                                                                                                                                                                                                                                         |   |
-| `products.quantity`      | Number | OPTIONAL | The amount of the product bought in this purchase. (Default: 1)                                                                                                                                                                                                                                                            |   |
-| `products.categories`    | Array  | OPTIONAL | An array of string categories. Will be used in the future to search and filter purchases.                                                                                                                                                                                                                                  |   |
-
+|        **Field**       | **Type** | **Required** |                                                                                                                                                       **Description**                                                                                                                                                      |
+|----------------------|-------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `totalPrice`             | Number   | YES          | The total amount the customer paid (after shipping, tax, discounts, etc). It can contain a fraction (e.g. a value of 1.5 can describe a price of $1.5)|
+| `currency`               | String   | NO           | A three letter ISO-4217 currency code of the currency the prices are in (case insensitive). If provided, it must be in one of our supported currencies (see below), from which it will be converted to the currency you chose in FSM. If omitted, the store currency you set in FSM will be used.|
+| `userId`                 | String   | NO           | The identifier of the user that places the order.|
+| `storeId`                | String   | NO           | The identifier of the store where the order is placed.|
+| `orderId`                | String   | NO           | An order identifier that will be shown in FSM in the future to help you recognize specific purchases and will be used to make sure you don’t count the same purchase multiple times. If you send multiple purchases with the same (non-null) orderId, Oribi will only count the first purchase and ignore subsequent ones. |
+| `taxPrice`               | Number   | NO           | The tax paid for the purchase (in the same currency as the total price). (Default: 0)|
+| `shippingPrice`          | Number   | NO           | The additional price paid for the shipping of the purchased items (in the same currency as the total price). (Default: 0)|
+| `discountPrice`          | Number   | NO           | The discount for the purchase, if exists (in the same currency as the total price). (Default: 0)|
+| `customField`            | Any      | NO           | Any extra field that need to be added to the purchase|
+| `products`               | Array    | NO           | The list of products purchased (see details below)|
+| `products.name`          | String   | NO           | The name of the product. Will be used in the future to search or filter purchases.|
+| `products.id`            | String   | NO           | The String identifier of the product.|
+| `products.price`         | Number   | NO           | The price for a single unit of the product.|
+| `products.discountPrice` | Number   | NO           | The discount on specific product.|
+| `products.taxPrice`      | Number   | NO           | The tax price on specific product.|
+| `products.quantity`      | Number   | NO           | The amount of the product bought in this purchase. (Default: 1)|
+| `products.categories`    | Array    | NO           | An array of string categories. Will be used in the future to search and filter purchases.|
+| `products.customField`   | Any      | NO           | Any extra fields that need to be added per product. |
 
 ## Supported Currencies
-
-| AED | United Arab Emirates Dirham            |
+|CODE | CURRENCY                               |
 |-----|----------------------------------------|
+| AED | United Arab Emirates Dirham            |
 | AFN | Afghan Afghani                         |
 | ALL | Albanian Lek                           |
 | AMD | Armenian Dram                          |
