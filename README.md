@@ -84,6 +84,35 @@ _fsm('purchase', purchaseDetails);
 | `products.categories`    | Array    | NO           | An array of string categories. Will be used in the future to search and filter purchases.|
 | `products.customField`   | Any      | NO           | Any extra fields that need to be added per product. |
 
+#### Example
+
+```javascript
+_fsm('purchase', {
+    totalPrice: 250.00,
+    userId: '41e3788a-8f73-11ec-b909-0242ac120002',
+    storeId: 592,
+    taxPrice: 24.25,
+    products: [
+        {
+	    name: 'Jenny\'s Flower',
+	    price: 19.99,
+	    id: 502,
+	    quantity: 2,
+	    categories: ['edible', 'recreational']
+	},
+	
+	{
+	    name: 'Pep-O-Chem Stay Prerolls',
+	    price: 40.10,
+	    id: 503,
+	    quantity: 1,
+	    categories: ['fluffy', 'preroll', 'medical']
+	},
+    ]
+});
+```
+
+
 #### Supported Currencies
 |CODE | CURRENCY                               |
 |-----|----------------------------------------|
