@@ -88,10 +88,10 @@ _fsm('purchase', purchaseDetails);
 
 ```javascript
 _fsm('purchase', {
-    totalPrice: 250.00,
+    totalPrice: 90.58,
     userId: '41e3788a-8f73-11ec-b909-0242ac120002',
     storeId: 592,
-    taxPrice: 24.25,
+    taxPrice: 10.50,
     products: [
         {
 	    name: 'Jenny\'s Flower',
