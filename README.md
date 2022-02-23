@@ -62,7 +62,7 @@ Purchase tracking sends FlowerShop Media information about a purchase made withi
 _fsm('purchase', purchaseDetails);
 ```
 
-####  Anatomy of the `purchaseDetails` JavaScript object
+####  Specification of the `purchaseDetails` JavaScript object
 |        **Field**       | **Type** | **Required** |                                                                                                                                                       **Description**                                                                                                                                                      |
 |----------------------|-------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `totalPrice`             | Number   | YES          | The total amount the customer paid (after shipping, tax, discounts, etc). It can contain a fraction (e.g. a value of 1.5 can describe a price of $1.5)|
